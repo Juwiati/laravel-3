@@ -19,11 +19,13 @@ class LoginController extends Controller
     }
     public function username()
     {
-        return '';
+        return 'phone';
     }
-     protected function credentials(Request $request)
+
+    protected function credentials(Request $request)
     {
         return $request->only($this->username(), 'password');
+
     }
 
     use AuthenticatesUsers;
