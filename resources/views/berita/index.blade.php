@@ -1,29 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>berita</title>
-</head>
-<body>
+@extends('layouts.app')
 
-<table border ="1">
-	
-	<tr>
-		<td>ID</td>
-		<td>Judul Isi</td>
-		<td>Users ID</td>
-	</tr>
+@section('content')
 
-	@foreach ($berita as $item)
+<body> 
+<a href="{!! route('berita.create') !!}" class="btn btn-primary">Tambah Data</a>
 
-		<tr>
-		<td>id</td>
-		<td>judul isi </td>
-		<td>users id</td>
-	</tr>
-@endforeach
+        <table border= "1">
 
-</table>
+        <tr> 
+        <td>id </td>
+        <td>judul</td>
+        <td>isi</td>
+        <td>users_id</td>
+        <td>aksi</td>
+        </tr>
 
+        @foreach($berita as $item)
 
+        <tr>
+
+        <td> {!! $item ->id !!}</td>
+        <td> {!! $item ->judul!!}</td>
+        <td> {!! $item ->isi !!}</td>
+        <td> {!! $item ->users_id !!}</td>
+        <td>
+        <a href="{!! route('berita.show',[$item->id]) !!}" 
+        class="btn btn-succes">
+        Lihat</a>
+
+        </tr>
+
+        @endforeach
+    </table>
 </body>
-</html>
+
+@endsection

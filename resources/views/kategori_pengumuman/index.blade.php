@@ -1,29 +1,38 @@
+<html> 
 
-<html>
-<head>
-	<title>kategori pengumuman</title>
+<head> 
+    <title> Kategori Berita </title>
+
 </head>
-<body>
 
-<table border ="1">
-	
-	<tr>
-		<td>ID</td>
-		<td>Nama</td>
-		<td>Users ID</td>
-	</tr>
+<body> 
+<a href="{!! route('kategori_pengumuman.create') !!}" class="btn btn-primary">Tambah Data</a>
 
-	@foreach ($kategori_pengumuman as $item)
+        <table border= "1">
+        <tr> 
+        <td>id </td>
+        <td>nama</td>
+        <td>users_id</td>
+        <td>aksi</td>
+        </tr>
 
-		<tr>
-		<td>id</td>
-		<td>nama</td>
-		<td>users id</td>
-	</tr>
-@endforeach
+        @foreach($kategori_pengumuman as $item)
 
-</table>
+        <tr>
 
+        <td> {!! $item ->id !!}</td>
+        <td> {!! $item ->nama !!}</td>
+        <td> {!! $item ->users_id !!}</td>
+        <td>
+        <a href="{!! route('kategori_pengumuman.show',[$item->id]) !!}" 
+        class="btn btn-succes">
+        Lihat</a>
+
+
+        </tr>
+
+        @endforeach
 
 </body>
+
 </html>
