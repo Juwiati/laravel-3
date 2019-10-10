@@ -1,32 +1,54 @@
-@csrf
-<div class="form-group row">
-        <label for="nama" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+@extends('layouts.app')
 
-        <div class="col-md-4">
-            <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" required autocomplete="nama" autofocus>
-            @error('nama')
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Galeri</div>
+                
+                <div class="card-body">
+                    <div class="form-group row">
+                         <label  class="col-md-4 col-form-label text-md-right">ID</label>
+                         <label  class="col-md-8 col-form-label text-md-left">{!! $galeri->id !!}</label>
+                    </div>
 
-           <span class="invalid-feedback" role="alert">
-           	<strong>{{$message}}</strong>
-           </span>
-           @enderror
-        </div>
-</div>
-<div>
-            <input id="users_id" type="hidden" class="form-control @error('users_id') is-invalid @enderror" name="users_id"value="{{ Auth::id() }}" required autocomplete="users_id" autofocus>
-            
-            </div>
+                    <div class="form-group row">
+                         <label  class="col-md-4 col-form-label text-md-right">Judul</label>
+                         <label  class="col-md-8 col-form-label text-md-left">{!! $galeri->judul!!}</label>
+                    </div>
 
-   
+                    <div class="form-group row">
+                         <label  class="col-md-4 col-form-label text-md-right">Isi</label>
+                         <label  class="col-md-8 col-form-label text-md-left">{!! $galeri-> isi!!}</label>
+                    </div>
 
-<div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Simpan Data') }}
-                                </button>
-                                <button>
-                                <a href="{!! route('galeri.index') !!}"class="btn btn-danger">
-                                    {{ __('Batal') }}
-                                </button>
-                            </div>
+                     <div class="form-group row">
+                         <label  class="col-md-4 col-form-label text-md-right">User Id</label>
+                         <label  class="col-md-8 col-form-label text-md-left">{!! $galeri->users_id !!}
+                         </label>
+                    </div>
+
+                    <div class="form-group row">
+                         <label  class="col-md-4 col-form-label text-md-right">Create</label>
+                         <label  class="col-md-8 col-form-label text-md-left">{!! $galeri->created_at->format('d/m/Y H:i') !!}</label>
+                    </div>
+
+                    <div class="form-group row">
+                         <label  class="col-md-4 col-form-label text-md-right">Update</label>
+                         <label  class="col-md-8 col-form-label text-md-left">{!! $galeri->updated_at->format('d/m/Y H:i') !!}</label>
+                    </div>
+
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <a href="{!! route('galeri.index')!!}" class="btn btn-primary">
+                                Back
+                            </a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

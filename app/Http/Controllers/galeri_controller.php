@@ -21,8 +21,8 @@ class galeri_controller extends Controller
    	return view('galeri.show', compact('galeri'));
    }
    public function create(){
-   	$galeri=galeri::pluck('nama','id');
-   	return view('galeri.create', compact('galeri'));
+   	$kategori_galeri=kategori_galeri::pluck('nama','id');
+   	return view('kategori_galeri.create', compact('kategori_galeri'));
    }
    public function store(Request $request){
       $input= $request->all();

@@ -19,7 +19,7 @@ public function show($id){
 	}
     public function create(){
     	$kategori_berita=kategori_berita::pluck('nama','id');
-    	return view('berita.create',compact('kategori_berita'));
+    	return view('kategori_berita.create',compact('kategori_berita'));
     }
     public function store(Request $request){
     	$input=$request->all();

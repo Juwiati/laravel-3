@@ -12,14 +12,23 @@ class kategori_artikel_Controller extends Controller
     	$kategori_artikel=kategori_artikel::all();
     	return view('kategori_artikel.index', compact('kategori_artikel'));
    }
+
    public function show($id){
    	$kategori_artikel=kategori_artikel::find($id);
    	return view('kategori_artikel.show', compact('kategori_artikel'));
-   }
+
+
+    if (empty($kategori_artikel)){
+        return redirect(route('kategori_artikel.index'));
+      }
+  }
+
    public function create(){
    	$kategori_artikel=kategori_artikel::pluck('nama','id');
+
    	return view('kategori_artikel.create', compact('kategori_artikel'));
    }
+
    public function store(Request $request){
       $input= $request->all();
      
@@ -27,4 +36,16 @@ class kategori_artikel_Controller extends Controller
       return redirect(route('kategori_artikel.index'));
 
    }
+
+   public function edit ($id){
+      $kategori_artikel=kategori_artikel::find($id);
+
+      if (empty($kategori_artikel)){
+        return redirect(route('kategori_artikel.index'));
+      
+
+      return view('kategori_artikel.edit',compact('kategori_artikel'));
+
+   }
+ }
 }

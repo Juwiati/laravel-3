@@ -5,23 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\pengumuman;
 use App\kategori_pengumuman;
+
 class pengumuman_controller extends Controller
 {
-      public function index(){
+    public function index(){
 
    	$pengumuman=pengumuman::all();
-
- 
-
    	return view('pengumuman.index',compact('pengumuman'));
    }
+   
    public function show($id){
    	$pengumuman=pengumuman::find($id);
    	return view('pengumuman.show', compact('pengumuman'));
    }
    public function create(){
-   	$pengumuman=pengumuman::pluck('nama','id');
-   	return view('pengumuman.create', compact('pengumuman'));
+   	$kategori_pengumuman=kategori_pengumuman::pluck('nama','id');
+   	return view('kategori_pengumuman.create', compact('pengumuman'));
    }
    public function store(Request $request){
       $input= $request->all();

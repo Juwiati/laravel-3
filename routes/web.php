@@ -69,3 +69,6 @@ Route::get('/pengumuman', 'pengumuman_controller@index')->name('pengumuman.index
 Route::get('/pengumuman/create', 'pengumuman_controller@create')->name('pengumuman.create');
 Route::post('/pengumuman', 'pengumuman_controller@store')->name('pengumuman.store');
 Route::get('/pengumuman/{id}', 'pengumuman_controller@show')->name('pengumuman.show');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
