@@ -8,14 +8,15 @@
                 <div class="card-header">Tambah Data</div>
                 
                 <div class="card-body">
+                     
                         <div class="form-group row">
-                         <label  class="col-md-4 col-form-label text-md-right">ID</label>
-                         <label  class="col-md-8 col-form-label text-md-left">{!! $kategori_artikel->id !!}</label>
+                         <label  class="col-md-4 col-form-label text-md-right"> ID </label>
+                         <label  class="col-md-8 col-form-label text-md-left">{!! $kategori_artikel-> id !!}</label>
                     </div>
 
                     <div class="form-group row">
                          <label  class="col-md-4 col-form-label text-md-right">Nama</label>
-                         <label  class="col-md-8 col-form-label text-md-left">{!! $kategori_artikel->nama !!}</label>
+                         <label  class="col-md-8 col-form-label text-md-left">{!! $kategori_artikel-> nama !!}</label>
                     </div>
 
                      <div class="form-group row">

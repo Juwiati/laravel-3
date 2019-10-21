@@ -7,9 +7,10 @@
 				<div class ="card-header">List Berita</div>
 
 				<div class="card-body">
-					<form mentod="post" action="{!!route ('berita.store') !!}">
+					{!! Form::open (['route' => 'berita.store', 'method' =>'post']) !!}
+
 					@include('berita.form')
-					</form>
+					{!! Form::close() !!}
 				</div>
 			</div>
 		</div>

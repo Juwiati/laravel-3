@@ -42,10 +42,21 @@ class kategori_artikel_Controller extends Controller
 
       if (empty($kategori_artikel)){
         return redirect(route('kategori_artikel.index'));
-      
+      }
 
       return view('kategori_artikel.edit',compact('kategori_artikel'));
-
-   }
  }
+
+    public function update(request $request,$id){
+      $edit= $request->all();
+      kategori_artikel::find($id) -> update($edit);
+
+      return redirect(route('kategori_artikel.index'));
+    }
+
+    public function destroy($id){
+      kategori_artikel::destroy($id);
+
+      return redirect(route('kategori_artikel.index'));
+    }
 }

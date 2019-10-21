@@ -6,9 +6,10 @@
 			<div class ="col-md-8">
 				<div class ="card-header">List Artikel</div>
 				<div class="card-body">
-					<form mentod="post" action="{!!route ('artikel.store') !!}">
+				{!! Form::open (['route' => 'artikel.store', 'method' =>'post']) !!}
+
 					@include('artikel.form')
-					</form>
+					{!! Form::close() !!}
 				</div>
 			</div>
 		</div>

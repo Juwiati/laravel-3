@@ -4,15 +4,12 @@
 	<div class ="container">
 		<div class ="row justify-content-center">
 			<div class ="col-md-8">
-				<div class ="card-header">Tambah Kategori Galeri</div>
-
+				<div class ="card-header">List Artikel</div>
 				<div class="card-body">
-					{!! Form::open (['route' => 'kategori_galeri.store', 'method' =>'post']) !!}
+				{!! Form::model($artikel, ['route'=>['artikel.update', $artikel->id], 'method'=>'patch']) !!}
 
-					@include('kategori_galeri.form')
-
+					@include('artikel.form')
 					{!! Form::close() !!}
-					</form>
 				</div>
 			</div>
 		</div>

@@ -24,6 +24,14 @@
 		<a href="{!! route('kategori_artikel.show',[$item->id]) !!}" class="btn btn-success">
 			Lihat
 		</a>
+
+		<a href="{!! route('kategori_artikel.edit',[$item->id]) !!}" class="btn btn-warning">
+			Ubah
+		</a>
+
+		{!! Form::open(['route' => ['kategori_artikel.destroy', $item->id], 'method'=>'delete']) !!}
+        {!! Form::submit('Delete',['class'=>'btn btn-sm btn-danger','onclick'=>"return confirm('Apakah anda yakin menghapus data ini?')"]); !!}
+        {!! Form::close() !!}
 </tr>
 @endforeach
 

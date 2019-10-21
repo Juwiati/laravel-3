@@ -17,6 +17,10 @@ class pengumuman_controller extends Controller
    public function show($id){
    	$pengumuman=pengumuman::find($id);
    	return view('pengumuman.show', compact('pengumuman'));
+
+   	if (empty($pengumuman)){
+        return redirect(route('pengumuman.index'));
+     }
    }
    public function create(){
    	$kategori_pengumuman=kategori_pengumuman::pluck('nama','id');
@@ -29,4 +33,27 @@ class pengumuman_controller extends Controller
       return redirect(route('pengumuman.index'));
 
    }
+
+    public function edit ($id){
+      $pengumuman_controller=pengumuman::find($id);
+
+      if (empty($pengumuman)){
+        return redirect(route('pengumuman.index'));
+      }
+
+      return view('pengumuman.edit',compact('pengumuman'));
+    }
+
+     public function update(request $request,$id){
+      $edit= $request->all();
+      pengumuman::find($id) -> update($edit);
+
+      return redirect(route('pengumuman.index'));
+    }
+
+    public function destroy($id){
+      pengumuman::destroy($id);
+
+      return redirect(route('pengumuman.index'));
+    }
 }

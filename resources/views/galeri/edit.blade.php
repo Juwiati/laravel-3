@@ -7,23 +7,12 @@
 				<div class ="card-header">List Galeri</div>
 
 				<div class="card-body">
-					{!! Form::open (['route' => 'galeri.store', 'method' =>'post']) !!}
+				{!! Form::model($galeri, ['route'=>['galeri.update', $galeri->id], 'method'=>'patch']) !!}
 
 					@include('galeri.form')
-
 					{!! Form::close() !!}
 				</div>
 			</div>
 		</div>
 	</div>
 @endsection
-
-@section('scripts')
- <script src="https://cdn.ckeditor.com/4.13.0/full/ckeditor.js"></script>
- <script >
-   $(document).ready(function(){
-    CKEDITOR.replace( 'isi' );
-   });
- 
-  </script>
-  @endsection

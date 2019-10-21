@@ -27,6 +27,13 @@
         class="btn btn-succes">
         Lihat</a>
 
+        <a href="{!! route('pengumuman.show',[$item->id]) !!}" 
+        class="btn btn-warning">
+        Ubah</a>
+        {!! Form::open(['route' => ['pengumuman.destroy', $item->id], 'method'=>'delete']) !!}
+        {!! Form::submit('Delete',['class'=>'btn btn-sm btn-danger','onclick'=>"return confirm('Apakah anda yakin menghapus data ini?')"]); !!}
+        {!! Form::close() !!}
+
         </tr>
 
         @endforeach

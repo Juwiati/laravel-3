@@ -24,7 +24,11 @@ class artikel_controller extends Controller
 public function show($id){
    	$artikel=artikel::find($id);
    	return view('artikel.show', compact('artikel'));
+
+   	if (empty($artikel)){
+        return redirect(route('artikel.index'));
    }
+}
 
    public function create(){
    	$kategori_artikel=kategori_artikel::pluck('nama','id');
@@ -38,5 +42,29 @@ public function show($id){
       return redirect(route('artikel.index'));
 
    }
+
+
+   public function edit ($id){
+      $artikel=artikel::find($id);
+
+      if (empty($artikel)){
+        return redirect(route('artikel.index'));
+      }
+
+      return view('artikel.edit',compact('artikel'));
+ }
+
+    public function update(request $request,$id){
+      $edit= $request->all();
+      artikel::find($id) -> update($edit);
+
+      return redirect(route('artikel.index'));
+    }
+
+    public function destroy($id){
+      artikel::destroy($id);
+
+      return redirect(route('artikel.index'));
+    }
 }
 
